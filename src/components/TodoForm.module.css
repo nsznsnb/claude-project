@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.input {
+  flex: 1;
+}
+
+.button {
+  white-space: nowrap;
+}

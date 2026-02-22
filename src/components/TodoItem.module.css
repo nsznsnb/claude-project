@@ -1,0 +1,52 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #646cff;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.item:hover {
+  background-color: rgba(100, 108, 255, 0.1);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.text {
+  font-size: 1rem;
+  text-align: left;
+}
+
+.completedText {
+  font-size: 1rem;
+  text-align: left;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
