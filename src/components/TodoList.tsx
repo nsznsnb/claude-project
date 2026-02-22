@@ -13,6 +13,7 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Todo } from '../types/todo'
 import TodoItem from './TodoItem'
 
@@ -20,8 +21,8 @@ interface TodoListProps {
   todos: Todo[];
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
-  onEdit: (id: string, newText: string) => void;
-  onReorder: (todos: Todo[]) => void;
+  onEdit?: (id: string, newText: string) => void;
+  onReorder?: (todos: Todo[]) => void;
 }
 
 export default function TodoList({ todos, onToggle, onDelete, onEdit, onReorder }: TodoListProps) {
@@ -35,10 +36,9 @@ export default function TodoList({ todos, onToggle, onDelete, onEdit, onReorder 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event
 
-    if (over && active.id !== over.id) {
+    if (over && active.id !== over.id && onReorder) {
       const oldIndex = todos.findIndex((todo) => todo.id === active.id)
       const newIndex = todos.findIndex((todo) => todo.id === over.id)
-
       const newTodos = arrayMove(todos, oldIndex, newIndex)
       onReorder(newTodos)
     }
@@ -46,9 +46,16 @@ export default function TodoList({ todos, onToggle, onDelete, onEdit, onReorder 
 
   if (todos.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
-        タスクがありません
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="text-center py-16"
+      >
+        <div className="text-5xl mb-4 opacity-60">✨</div>
+        <p className="text-white/40 text-lg font-medium">タスクがありません</p>
+        <p className="text-white/20 text-sm mt-1">新しいタスクを追加してみましょう</p>
+      </motion.div>
     )
   }
 
@@ -62,7 +69,7 @@ export default function TodoList({ todos, onToggle, onDelete, onEdit, onReorder 
         items={todos.map(todo => todo.id)}
         strategy={verticalListSortingStrategy}
       >
-        <div>
+        <AnimatePresence>
           {todos.map((todo) => (
             <TodoItem
               key={todo.id}
@@ -72,7 +79,7 @@ export default function TodoList({ todos, onToggle, onDelete, onEdit, onReorder 
               onEdit={onEdit}
             />
           ))}
-        </div>
+        </AnimatePresence>
       </SortableContext>
     </DndContext>
   )
