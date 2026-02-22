@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(echo:*)",
+      "Bash(\"/c/Program Files/nodejs/npm.cmd\" --version)",
+      "Bash(\"/c/Program Files/Volta/npm.cmd\" --version)",
+      "Bash(node --version)",
+      "Bash(\"/c/Users/ninis/AppData/Local/Volta/bin/pnpm.exe\" --version)",
+      "Bash(\"/c/Users/ninis/AppData/Local/Volta/bin/pnpm.exe\" run build)",
+      "Bash(gcloud config set:*)",
+      "Bash(gcloud artifacts repositories describe:*)",
+      "Bash(gcloud services enable:*)",
+      "Bash(gcloud artifacts repositories create:*)",
+      "Bash(gcloud auth configure-docker:*)",
+      "Bash(gcloud builds submit:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(gcloud builds log:*)",
+      "Bash(tee:*)",
+      "Bash(gcloud run services describe:*)",
+      "Bash(\"/c/Users/ninis/AppData/Local/Volta/bin/pnpm.exe\" run dev)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_click",
+      "Bash(gh auth refresh:*)",
+      "Bash(gh issue create:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
