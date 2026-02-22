@@ -1,13 +1,21 @@
 .form {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
 .input {
-  flex: 1;
+  width: 100%;
 }
 
 .button {
-  white-space: nowrap;
+  width: 100%;
+  background-color: #646cff;
+  color: white;
+  padding: 0.75em 1.2em;
+}
+
+.button:hover {
+  background-color: #535bf2;
 }
