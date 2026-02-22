@@ -36,33 +36,46 @@ npm run build
 npm test
 ```
 
-## GitHub Pagesへのデプロイ
+## デプロイ
 
-### 自動デプロイ（推奨）
+### Vercelへのデプロイ（推奨）
 
-このプロジェクトはGitHub Actionsを使用した自動デプロイに対応しています。
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/nsznsnb/claude-project)
 
-1. GitHubリポジトリの設定で、Pages機能を有効化してください
-   - Settings → Pages → Source: "GitHub Actions" を選択
+#### 手順
 
-2. `main`ブランチにプッシュすると、自動的にビルドとデプロイが実行されます
+1. Vercelアカウントにログイン
+2. 上記ボタンをクリックするか、[Vercel Dashboard](https://vercel.com/new)からGitHubリポジトリをインポート
+3. プロジェクト名とビルド設定を確認（デフォルト設定で動作します）
+4. "Deploy"ボタンをクリック
+5. 数分後、デプロイ完了URL（例: `https://your-project.vercel.app`）にアクセス可能
 
-3. デプロイ完了後、`https://<username>.github.io/claude-project/` でアクセスできます
-
-### 手動デプロイ
+#### Vercel CLIでのデプロイ
 
 ```bash
-npm run deploy
+# Vercel CLIのインストール
+npm install -g vercel
+
+# デプロイ実行
+vercel
 ```
 
-**注意:** `vite.config.ts` の `base` 設定をあなたのリポジトリ名に合わせて変更してください。
+### GitHub Pagesへのデプロイ
 
-```typescript
-export default defineConfig({
-  base: '/your-repository-name/',
-  // ...
-})
-```
+このプロジェクトはGitHub Actionsを使用した自動デプロイにも対応しています。
+
+1. GitHubリポジトリの設定で、Pages機能を有効化
+   - Settings → Pages → Source: "GitHub Actions" を選択
+
+2. `vite.config.ts` の `base` 設定を変更:
+   ```typescript
+   export default defineConfig({
+     base: '/claude-project/',  // リポジトリ名に合わせて変更
+     // ...
+   })
+   ```
+
+3. `main`ブランチにプッシュすると、自動的にビルドとデプロイが実行されます
 
 ## プロジェクト構造
 
