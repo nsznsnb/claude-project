@@ -1,5 +1,5 @@
 import { Todo } from '../types/todo'
-import TrashIcon from './TrashIcon'
+import { FaTrash } from 'react-icons/fa'
 import styles from './TodoItem.module.css'
 
 interface TodoItemProps {
@@ -28,7 +28,7 @@ export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
         className={styles.deleteButton}
         aria-label={`${todo.text}を削除`}
       >
-        <TrashIcon />
+        <FaTrash />
       </button>
     </div>
   )
